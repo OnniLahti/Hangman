@@ -1,0 +1,1 @@
+pdoc -o doc string_helper.py
