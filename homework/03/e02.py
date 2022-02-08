@@ -1,1 +1,0 @@
-print("This is exercise 02")
