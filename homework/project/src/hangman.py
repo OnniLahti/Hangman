@@ -1,5 +1,6 @@
 import random
 import os
+import sys
 
 test_word = ['koira', 'kissa', 'käpy']
 
@@ -8,7 +9,6 @@ secret_word = list(word)
 hidden_word = []
 for item in secret_word:
     hidden_word.append('_')
-game_over = False
 tries = 0
 max_tries = 6
 missed_characters = []
@@ -177,16 +177,52 @@ def gameboard(tries):
 |--------------------------- /
     """
 
+def restart_program():
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def player_guess():
-    guess = print('your guess: ')
+def check_win(tries):
+    if tries == 6:
+        print()
+        print('You have lost :(')
+        print()
+        while True:
+            play_again= input("Play again? 'y' for yes 'n' for no: ")
 
-while not game_over:
+            if play_again == 'y':
+                restart_program()
+            elif play_again == 'n':
+                sys.exit()
+            else:
+                print('Invalid input. Please try again')
+
+def player_guess(tries):
+    guess = input('your guess: ')
+    if guess in secret_word:
+        for i in range(len(secret_word)):
+            char = secret_word[i]
+            if char == guess:
+                hidden_word[i] = secret_word[i]
+                secret_word[i] = '_'
+                return tries
+    else:
+        missed_characters.append(guess)
+        tries += 1
+        return tries
+
+while True:
+    missed_characters_joined = ','.join(missed_characters)
     hidden_word_joined = ' '.join(hidden_word)
     clear()
     print(gameboard(tries))
     print(f'word: {hidden_word_joined}')
     print(f'{max_tries - tries} attempts remaining')
-    break
+    print(f'misses: {missed_characters_joined}')
+    tries = player_guess(tries)
+    check_win(tries)
+
+
+
