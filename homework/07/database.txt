@@ -1,2 +1,0 @@
-1,Jussi,Virtanen
-2,Pekka,Keinänen

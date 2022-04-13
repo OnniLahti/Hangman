@@ -1,1 +1,0 @@
-pdoc -o validation.py
