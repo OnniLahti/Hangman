@@ -1,6 +1,6 @@
 # Hangman
 
-This project is based solely on the hangman game ![Alt text](https://en.wikipedia.org/wiki/Hangman_(game)"Wikipedia"). This is a very simple ASCII implementation of the game, meant to be played in the console.
+This project is based solely on the hangman game [Wikipedia](https://en.wikipedia.org/wiki/Hangman_(game)). This is a very simple ASCII implementation of the game, meant to be played in the console.
 
 # Author
 
