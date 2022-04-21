@@ -1,10 +1,6 @@
-wheel
 cat
-squid
 bear
 raccoon
-weasel
-eagle
 shark
 mammoth
 sabre-toothed tiger
