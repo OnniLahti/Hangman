@@ -1,6 +1,6 @@
 # Hangman
 
-This project is based solely on the hangman game (https://en.wikipedia.org/wiki/Hangman_(game)"Wikipedia"). This is a very simple ASCII implementation of the game, meant to be played in the console.
+This project is based solely on the hangman game ![Alt text](https://en.wikipedia.org/wiki/Hangman_(game)"Wikipedia"). This is a very simple ASCII implementation of the game, meant to be played in the console.
 
 # Author
 
@@ -8,7 +8,7 @@ Onni Lahti
 
 # Screenshots
 
-![Alt text](https://images.squarespace-cdn.com/content/v1/5cfbcd840dfb94000188ad57/1560216346005-4X306RNLMZGTFTQU4KP8/Intro+1.PNG.png?format=750w "Application startup screen.")
+![Alt text](https://i.imgur.com/r8Wm7vu.png "Application game won screen.")
 
 # Tech/framework used
 
