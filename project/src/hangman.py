@@ -2,10 +2,12 @@ import random
 import os
 import sys
 
-test_word = ['koira', 'kissa', 'käpy']
+with open('words/words.txt') as f:
+    lines = f.readlines()
+    word = random.choice(lines)
 
-word = random.choice(test_word)
 secret_word = list(word)
+secret_word = secret_word[:-1]
 hidden_word = []
 for item in secret_word:
     hidden_word.append('_')
