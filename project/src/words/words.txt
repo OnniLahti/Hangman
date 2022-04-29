@@ -1,6 +1,5 @@
 cat
+fox
 bear
 raccoon
 shark
-mammoth
-sabre-toothed tiger
