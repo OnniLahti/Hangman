@@ -1,5 +1,5 @@
-cat
+puffin
 fox
 bear
 raccoon
-shark
+groundhog
