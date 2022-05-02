@@ -338,7 +338,7 @@ def save_score():
 
     #Sorting the scores highest to lowest
     try:
-        scores.sort(key=lambda scores: int(scores[1]))
+        scores.sort(key = lambda scores: int(scores[1]))
     except IndexError:
         pass
 
@@ -349,19 +349,17 @@ def save_score():
     try:
         for i in range(3):
             new_scores.append(scores[i])
-
     except IndexError:
-        for i in range(len(scores)):
-            new_scores.append(scores[i])
-
-    print(new_scores)
+        pass
 
     #Writing over the old list with the new list
     with open(f'highscores/{word}.txt', 'w') as f:
         try:
-            f.write("\n".join("%s %s" % tup for tup in new_scores))
+            f.write("\n".join("%s %s" % score for score in new_scores))
         except TypeError:
-            f.write("\n".join("%s %s" in new_scores))
+            f.write(str(' '.join(new_scores[1])))
+
+
 
 #Prints the top 3 scores of all words
 def show_scores():
