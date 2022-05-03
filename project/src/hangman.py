@@ -2,34 +2,10 @@ import random
 import os
 import sys
 import time
-from ASCII import gameboard
 from scores import *
+from gamestates import gameboard
 
-tries = 0
-max_tries = 6
-missed_characters = []
-end_time = 0
-time_between = 0
-start_time = 0
-player_name = ''
-seconds = 0
-game_active = False
-
-# It opens the file words.txt and reads all the lines in the file. It then chooses a random word from
-# the list of words.
-with open('words/words.txt') as f:
-    lines = f.readlines()
-    word = random.choice(lines).strip()
-
-# Converting the string word into a list of characters.
-secret_word = list(word)
-
-# Creating a list of underscores that is the same length as the secret word.
-hidden_word = []
-for item in secret_word:
-    hidden_word.append('_')
-
-#Function to just print the logo of the game
+# Function to just print the logo of the game
 def print_logo():
     """
     It prints the logo.
@@ -42,28 +18,19 @@ def print_logo():
 []    []  []    []  []    [[]   [][[[]]]   []   []   []  []    []  []   [[]
 \n""")
 
-#Function to print the time elapsed
-def timer(time_between):
+# Function to count the time elapsed between start and end of the game
+def time_calculator(start_time):
     """
-    The function timer takes in a parameter time_between and sets the global variable seconds to the
-    value of time_between
+    This function takes in a start time and returns the time between the start time and the current time
     
-    :param time_between: The time between start_time and end_time
+    :param start_time: the time when the game was started
+    :return: The time between the start time and the end time.
     """
-    global seconds
-    seconds = time_between
-    print(f'Your time was: {int(seconds)} seconds')
-
-#Function to count the time elapsed between start and end of the game
-def time_calculator():
-    """
-    This function calculates the time between the start and end of the program
-    """
-    global time_between
     end_time = time.time()
     time_between = end_time - start_time
+    return time_between
 
-#Function to restart the program if user wants to play again
+# Function to restart the program if user wants to play again
 def restart_program():
     """
     It restarts the program by calling the python executable and passing it the current script's name
@@ -71,7 +38,7 @@ def restart_program():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
-#Function to clear the console after every turn to make it look cleaner
+# Function to clear the console after every turn to make it look cleaner
 def clear():
     """
     If the operating system is Windows, clear the screen using the cls command, otherwise clear the
@@ -79,31 +46,52 @@ def clear():
     """
     os.system('cls' if os.name == 'nt' else 'clear')
 
-#Function to check if game has been won or lost yet
-def check_game_state(tries):
+# Function to check if game has been won or lost yet
+def check_game_state(tries, secret_word):
     """
-    If the player has used less than 6 tries, check if all the characters in the secret word are guessed. If
-    they are, the player has won. If the player has used all 6 tries, the player has lost
+    If the number of tries is less than 6, and all the characters in the secret word are underscores,
+    then the game state is won.
+    If the number of tries is equal to 6, then the game state is lost.
+    Otherwise, the game state is neutral
     
-    :param tries: the number of tries the player has used
+    :param tries: the number of tries the player has left
+    :param secret_word: the word the user is trying to guess
+    :return: The game state is being returned.
     """
     if tries < 6:
         if all(char == '_' for char in secret_word):
-            time_calculator()
-            game_over('won')
+            game_state = 'won'
+            return game_state
     elif tries == 6:
-        game_over('lost')
+        game_state = 'lost'
+        return game_state
+    else:
+        game_state = 'neutral'
+        return game_state
 
-#Function to take in player guess imput and check if it hits or misses
-def player_guess(tries):
+# Function to take in player guess imput and check if it hits or misses
+def player_guess(tries, word, secret_word, missed_characters, hidden_word):
     """
-    The function takes in the number of tries as an argument and returns the number of tries after the
-    player has guessed
+    The function takes in the number of tries, the word, the secret word, the missed characters, and the
+    hidden word.
+    It then asks the user to guess a letter or the whole word.
+    If the guess is not a letter, the guess is a letter that has already been
+    used or the guess is a word that is not the same length as the word
+    it tells the user to guess a letter or the whole word.
+    If the guess is the whole word, it replaces the secret word with underscores.
+    If the guess is a letter that is in the secret word
+    it replaces the secret word with underscores and replaces the hidden word with the letter.
+    If the guess is a letter that is not in the secret word, it adds the letter to the missed characters
+    and adds one to the number of tries.
     
-    :param tries: the number of tries the player has used
+    :param tries: the number of tries the player has left
+    :param word: the word that the player is trying to guess
+    :param secret_word: the word that the player is trying to guess
+    :param missed_characters: a list of characters that the player has guessed but are not in the secret word
+    :param hidden_word: the word that is displayed to the player
     :return: The number of tries
     """
-    while game_active:
+    while True:
         guess = input('your guess: ')
 
         if not guess.isalpha():
@@ -116,8 +104,10 @@ def player_guess(tries):
             print('Please guess with one letter or whole word')
         
         elif guess.lower() == word:
-            time_calculator()
-            game_over('won')
+
+            for i in range(len(secret_word)):
+                secret_word[i] = '_'
+            return tries
 
         elif guess.lower() in secret_word:
             for i in range(len(secret_word)):
@@ -132,40 +122,54 @@ def player_guess(tries):
             tries += 1
             return tries
 
-#Function to print the end game screen and ask user to play again
-def game_over(state):
+# Function to tell user they have won
+def game_won(player_name, word, time_between):
     """
-    If the game is won, print a congratulations and time, save the score, and ask the player if they want to play again. 
-    If the game is lost, print a gameboard, and ask the player if they want to play again.
+    This function prints a message to the user that they have won the game, the word they guessed, the
+    time it took them to guess the word, and then saves the score to the database
     
-    :param state: 'won' or 'lost'
+    :param player_name: The name of the player
+    :param word: the word that the player is trying to guess
+    :param time_between: This is the time it took to user to guess the word
     """
-    if state == 'won':
-        print()
-        print('You have won :)')
-        print(f'The word was: {word}')
-        timer(time_between)
-        print()
-        save_score(word, player_name, seconds)
-        while True:
-            play_again = input("Play again? 'y' for yes 'n' for no: ")
+    print()
+    print('You have won :)')
+    print(f'The word was: {word}')
+    print(f'Your time was: {int(time_between)} seconds')
+    print()
+    save_score(word, player_name, time_between)
+    while True:
+        play_again = input("Play again? 'y' for yes 'n' for no: ")
 
-            if play_again.casefold() == 'y':
-                restart_program()
-            elif play_again.casefold() == 'n': 
-                sys.exit()
-            else:
-                print('Invalid input. Please try again')
+        if play_again.casefold() == 'y':
+            restart_program()
+        elif play_again.casefold() == 'n': 
+            sys.exit()
+        else:
+            print('Invalid input. Please try again')
 
-    elif state == 'lost':
-        #Printing final state of gameboard for clarification
-        clear()
-        print("""
-    []    []     []     []]    []   [][][][]   []]      [[]     []     []]   []
-    []    []    [][]    [][]   []  []      []  [][]    [][]    [][]    [][]  []
-    [][][][]   []  []   [] []  []  []          [] []  [] []   []  []   [] [] []
-    []    []  [][][][]  []  [] []  []  []]][]  []  [][]  []  [][][][]  []  [][]
-    []    []  []    []  []    [[]   [][[[]]]   []   []   []  []    []  []   [[]
+# Function to tell user they have lost
+def game_lost(word, tries, max_tries, hidden_word_joined, missed_characters_joined):
+    """
+    This function prints the final state of the gameboard, the word, the number of attempts remaining,
+    the missed characters, and the message "You have lost :(" and the word.
+    It then asks the user if they want to play again.
+    If they do, the program restarts. If they don't, the program exits.
+    
+    :param word: the word that the user is trying to guess
+    :param tries: the number of tries the user has left
+    :param max_tries: The maximum number of tries the user has to guess the word
+    :param hidden_word_joined: The hidden word, but joined together with spaces in between each letter
+    :param missed_characters_joined: A string of all the characters that the user has guessed incorrectly
+    """
+    #Printing final state of gameboard for clarification
+    clear()
+    print("""
+[]    []     []     []]    []   [][][][]   []]      [[]     []     []]   []
+[]    []    [][]    [][]   []  []      []  [][]    [][]    [][]    [][]  []
+[][][][]   []  []   [] []  []  []          [] []  [] []   []  []   [] [] []
+[]    []  [][][][]  []  [] []  []  []]][]  []  [][]  []  [][][][]  []  [][]
+[]    []  []    []  []    [[]   [][[[]]]   []   []   []  []    []  []   [[]
 
             ___________
             |         |
@@ -182,76 +186,134 @@ def game_over(state):
 |                           | /
 |___________________________|/
     """)
-        print(f'word: {hidden_word_joined}')
-        print(f'{max_tries - tries} attempts remaining')
-        print(f'misses: {missed_characters_joined}')
-        print()
-        print('You have lost :(')
-        print(f'The word was: {word}')
-        print()
-        while True:
-            play_again = input("Play again? 'y' for yes 'n' for no: ")
-
-            if play_again.casefold() == 'y':
-                restart_program()
-            elif play_again.casefold() == 'n':
-                sys.exit()
-            else:
-                print('Invalid input. Please try again \n')
-
-#Prints logo and welcome message
-clear()
-print()
-print_logo()
-print('WELCOME TO HANGMAN!')
-
-# Asking the user if they want to play, quit or see highscores. If the user inputs 'p', the program
-# will break out of the loop and continue. If the user inputs 'q', the program will exit. If the user
-# inputs 'h', the program will show the highscores. If the user inputs anything else, the program will
-# print the logo and ask the user to try again.
-print('Do you want to play, quit or see highscores? \n')
-while True:
-    what_to_do = input("'p' to play, 'q' to quit and 'h' to see highscores: ")
-    clear()
-
-    if what_to_do.casefold() == 'p':
-        break
-    elif what_to_do.casefold() == 'q':
-        sys.exit()
-    elif what_to_do.casefold() == 'h':
-        show_scores()
-    else:
-        print()
-        print_logo()
-        print('Invalid input. Please try again')
-
-#Prints the logo
-print_logo()
-
-# This is a while loop that asks the user for a username. The username has to be between 3 and 8
-# characters. If the username is not between 3 and 8 characters, the user will be asked to try again.
-while True:
-
-    player_name = input('Enter username (min 3, max 8 characters): ')
-
-    if len(str(player_name)) <= 8 and len(str(player_name)) >= 3:
-        break
-    else:
-        print('Invalid name')
-
-# It starts the game and timer
-game_active = True
-start_time = time.time()
-
-# This is the main game loop. It prints the gameboard, the hidden word, the number of tries remaining, the
-# missed characters and calls the player_guess function.
-while game_active:
-    missed_characters_joined = ','.join(missed_characters)
-    hidden_word_joined = ' '.join(hidden_word)
-    clear()
-    print(gameboard(tries))
     print(f'word: {hidden_word_joined}')
     print(f'{max_tries - tries} attempts remaining')
     print(f'misses: {missed_characters_joined}')
-    tries = player_guess(tries)
-    check_game_state(tries)
+    print()
+    print('You have lost :(')
+    print(f'The word was: {word}')
+    print()
+    while True:
+        play_again = input("Play again? 'y' for yes 'n' for no: ")
+
+        if play_again.casefold() == 'y':
+            restart_program()
+        elif play_again.casefold() == 'n':
+            sys.exit()
+        else:
+            print('Invalid input. Please try again \n')
+
+# Function to ask user for username
+def username():
+    """
+    It asks the user to input a username, and if the username is between 3 and 8 characters, it returns
+    the username
+    :return: The player's name
+    """
+    print_logo()
+    while True:
+        player_name = input('Enter username (min 3, max 8 characters): ')
+
+        if len(str(player_name)) <= 8 and len(str(player_name)) >= 3:
+            break
+        else:
+            print('Invalid name')
+    return player_name
+
+# Function to choose random word to be guessed
+def word_choose():
+    """
+    It opens the file, reads the lines, chooses a random line, and returns the line
+    :return: A random word from the words.txt file.
+    """
+    with open('words/words.txt') as f:
+        lines = f.readlines()
+        word = random.choice(lines).strip()
+    return word
+
+# Function to print welcome message and logo
+def welcome_message():
+    """
+    This function prints the logo and welcome message
+    """
+    clear()
+    print_logo()
+    print('WELCOME TO HANGMAN!')
+
+# Function to ask if user wants to play/quit/see highscores
+def play_quit_highscores():
+    """
+    It asks the user if they want to play, quit or see highscores.
+    If they want to play, it breaks the loop and continues with the game.
+    If they want to quit, it quits the game.
+    If they want to see highscores, it shows the highscores.
+    If they enter an invalid input, it tells them that they entered an invalid input and asks them to try again.
+    """
+    print('Do you want to play, quit or see highscores? \n')
+    while True:
+        what_to_do = input("'p' to play, 'q' to quit and 'h' to see highscores: ")
+        clear()
+        if what_to_do.casefold() == 'p':
+            break
+        elif what_to_do.casefold() == 'q':
+            sys.exit()
+        elif what_to_do.casefold() == 'h':
+            show_scores()
+        else:
+            print_logo()
+            print('Invalid input. Please try again')
+
+# Main game loop
+def main():
+    """
+    This function is the main function of the game. It calls all the other functions and is the main
+    game loop.
+    """
+
+    welcome_message()
+    play_quit_highscores()
+
+    #Defining variables
+    tries = 0
+    max_tries = 6
+    missed_characters = []
+    hidden_word = []
+    word = word_choose()
+    player_name = username()
+
+    # Starting the timer
+    start_time = time.time()
+
+    # Converting the string word into a list of characters.
+    secret_word = list(word)
+
+# Appending an underscore to the list hidden_word for every character in the secret_word.
+    for item in secret_word:
+        hidden_word.append('_')
+
+# This is the main game loop. It prints the gameboard, the word, the number of attempts remaining,
+# the missed characters, and then calls the player_guess function. It then checks if the game has been
+# won or lost, and if it has, it calls the game_won or game_lost function. If the game has not been won or
+# lost, it continues the loop.
+    while True:
+        missed_characters_joined = ','.join(missed_characters)
+        hidden_word_joined = ' '.join(hidden_word)
+        clear()
+        print(gameboard(tries))
+        print(f'word: {hidden_word_joined}')
+        print(f'{max_tries - tries} attempts remaining')
+        print(f'misses: {missed_characters_joined}')
+        tries = player_guess(tries, word, secret_word, missed_characters, hidden_word)
+        game_state = check_game_state(tries, secret_word)
+        if game_state == 'neutral':
+            pass
+        elif game_state == 'won':
+            time_between = time_calculator(start_time)
+            game_won(player_name, word, time_between)
+        elif game_state == 'lost':
+            game_lost(word, tries, max_tries, hidden_word_joined, missed_characters_joined)
+
+# A way to make sure that the code in the if statement is only executed if the script is run directly,
+# and not imported.
+if __name__ == "__main__":
+    main()

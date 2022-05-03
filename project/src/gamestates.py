@@ -6,7 +6,6 @@ def gameboard(tries):
     :param tries: the number of tries the player has used
     """
     match tries:
-
         case 0:
             return """
 []    []     []     []]    []   [][][][]   []]      [[]     []     []]   []
