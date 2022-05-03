@@ -2,6 +2,16 @@ import os
 
 #Saves the users username and score to txt file and arranges the text file and deletes others than top 3
 def save_score(word, player_name, seconds):
+    """
+    The function takes in a word, player name, and the time it took to quess the word. It then opens
+    the file for the word and appends the player name and time to the end of the file. It then reads the
+    file and creates a list of tuples with the player name and time. It then sorts the list by the time
+    and creates a new list with the top 3 scores. It then writes over the old file with the new list.
+    
+    :param word: The word that the player is trying to guess
+    :param player_name: The username of the player
+    :param seconds: The time it took the player to quess the word
+    """
     
     with open(f'highscores/{word}.txt', 'a+') as f:
         f.write(f'\n{player_name}, {int(seconds)}')
@@ -35,6 +45,9 @@ def save_score(word, player_name, seconds):
 
 #Prints the top 3 scores of all words
 def show_scores():
+    """
+    This function opens the highscores folder and prints the highscores of each word.
+    """
 
     if os.path.exists('highscores/bear.txt'):
         with open('highscores/bear.txt') as f:
