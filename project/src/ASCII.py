@@ -1,5 +1,10 @@
 #Function that stores the different states of game in strings made from ASCII characters
 def gameboard(tries):
+    """
+    It takes in a number of tries and returns a string that represents the gameboard
+    
+    :param tries: the number of tries the player has used
+    """
     match tries:
 
         case 0:
