@@ -16,7 +16,7 @@ Language used is Python, frameworks (to be added)
 
 # Installation
 
-Download hangman.zip and extract everything to for example desktop <br />
+Download hangman.zip and extract hangman folder to for example desktop <br />
 <br />
 Or <br />
 <br />
@@ -25,18 +25,18 @@ Download source files to your computer and navigate into project folder
 # How to Run the App
 
 For windows only: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you downloaded hangman.zip then extract the zip to for example desktop and run the program by double clicking the hangman.exe 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or by navigating into hangman folder in cmd and typing the following: ``` hangman.exe ```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you downloaded hangman.zip then extract it to for example desktop and run the program by double clicking the hangman.exe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which is located in the extracted hangman folder <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or by navigating into hangman folder in cmd and typing the following: ```hangman.exe```
 <br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you instead downloaded source files, then navigate into project folder in cmd and type the following: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``cd src && python3 hangman.py`` or ``cd src && python hangman.py`` depending on your python version
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you instead downloaded source files, then navigate into ```4A00EZ53../project/src``` in cmd and type the following: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```python3 hangman.py``` or ```python hangman.py``` depending on your python version
 <br />
 <br />
 <br />
 For mac: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download source files, then navigate into project folder in terminal and type the following: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``cd src && python3 hangman.py`` or ``cd src && python hangman.py`` depending on your python version
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download source files, then navigate into ```4A00EZ53../project/src``` in terminal and type the following: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``python3 hangman.py`` or ``python hangman.py`` depending on your python version
 
 # Screencast
 
