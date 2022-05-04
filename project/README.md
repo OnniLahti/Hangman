@@ -20,18 +20,24 @@ Download hangman.zip, extract everything in the same folder and run hangman.py
 
 # How to Run the App
 
-For windows only:
-        If you downloaded hangman.zip then extract the zip to for example desktop and run hangman.exe by double clicking the exe \n
-        or by navigating into project folder in terminal/cmd and typing the following: \n
-        ```
-        cd src && python3 hangman.py   
-        ```
-        
-For windows or mac:
-        if you downloaded source files then navigate into project folder in terminal/cmd and type the following: \n
-        ```
-        cd src && python3 hangman.py   
-        ```
+For windows only: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you downloaded hangman.zip then extract the zip to for example desktop <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and run the program by double clicking the hangman.exe <br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or by navigating into extracted hangman folder in cmd and typing the following: ``` hangman.exe ```
+
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you downloaded source files, then navigate into project folder in cmd and type the following: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```
+                                                                                                cd src && python3 hangman.py
+                                                                                                ```
+<br />
+<br />
+For mac: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download source files, then navigate into project folder in terminal and type the following: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```
+                                                                                                cd src && python3 hangman.py
+                                                                                                ```
 
 # Screencast
 
