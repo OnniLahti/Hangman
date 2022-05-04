@@ -3,7 +3,7 @@ import os
 import sys
 import time
 from scores import *
-from gamestates import gameboard
+from gamestate import gameboard
 
 # Function to just print the logo of the game
 def print_logo():
