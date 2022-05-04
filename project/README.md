@@ -12,7 +12,7 @@ Onni Lahti
 
 # Tech/framework used
 
-Language used is Python, frameworks (to be added)
+Language used is mainly Python, no external modules used
 
 # Installation
 
@@ -29,14 +29,14 @@ For windows only: <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or by navigating into hangman folder in cmd and typing the following: ```hangman.exe```
 <br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you instead downloaded source files, then navigate into ```4A00EZ53../project/src``` in cmd and type the following: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```python3 hangman.py``` or ```python hangman.py``` depending on your python version
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you instead downloaded source files, extract the zip file to for example desktop and navigate into ```4A00EZ53../project/src``` in cmd <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and type the following: ```python3 hangman.py``` or ```python hangman.py``` depending on your python version
 <br />
 <br />
 <br />
 For mac: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download source files, then navigate into ```4A00EZ53../project/src``` in terminal and type the following: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``python3 hangman.py`` or ``python hangman.py`` depending on your python version
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download source files, extract the zip file to for example desktop and navigate into ```4A00EZ53../project/src``` in terminal <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and type the following: ```python3 hangman.py``` or ```python hangman.py``` depending on your python version
 
 # Screencast
 
