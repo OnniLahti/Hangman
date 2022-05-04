@@ -47,88 +47,43 @@ def show_scores():
     """
     This function opens the highscore files for each word, and prints the scores in a readable format.
     """
-    try:
-        with open('highscores/bear.txt', 'x+') as f:
-            scores_bear = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Bear"')
-            print()
-            for i in scores_bear:
-                print(f"         {' '.join(map(str,i))} seconds")
-    except FileExistsError:
-        with open('highscores/bear.txt') as f:
-            scores_bear = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Bear"')
-            print()
-            for i in scores_bear:
-                print(f"         {' '.join(map(str,i))} seconds")
+    with open('highscores/bear.txt') as f:
+        scores_bear = [tuple(line.split()) for line in f]
+        print('  ----------------------------------------')
+        print('  Word: "Bear"')
+        print()
+        for i in scores_bear:
+            print(f"         {' '.join(map(str,i))} seconds")
 
-    try:
-        with open('highscores/fox.txt', 'x+') as f:
-            scores_fox = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Fox"')
-            print()
-            for i in scores_fox:
-                print(f"        {' '.join(map(str,i))} seconds")
-    except FileExistsError:
-        with open('highscores/fox.txt') as f:
-            scores_fox = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Fox"')
-            print()
-            for i in scores_fox:
-                print(f"         {' '.join(map(str,i))} seconds")
-    try:
-        with open('highscores/groundhog.txt', 'x+') as f:
-            scores_groundhog = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Groundhog"')
-            print()
-            for i in scores_groundhog:
-                print(f"         {' '.join(map(str,i))} seconds")
-    except FileExistsError:
-        with open('highscores/groundhog.txt') as f:
-            scores_groundhog = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Groundhog"')
-            print()
-            for i in scores_groundhog:
-                print(f"         {' '.join(map(str,i))} seconds")
+    with open('highscores/fox.txt') as f:
+        scores_fox = [tuple(line.split()) for line in f]
+        print('  ----------------------------------------')
+        print('  Word: "Fox"')
+        print()
+        for i in scores_fox:
+            print(f"         {' '.join(map(str,i))} seconds")
 
-    try:
-        with open('highscores/puffin.txt', 'x+') as f:
-            scores_puffin = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Puffin"')
-            print()
-            for i in scores_puffin:
-                print(f"        {' '.join(map(str,i))} seconds")
-    except FileExistsError:
-        with open('highscores/puffin.txt') as f:
-            scores_puffin = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Puffin"')
-            print()
-            for i in scores_puffin:
-                print(f"         {' '.join(map(str,i))} seconds")
+    with open('highscores/groundhog.txt') as f:
+        scores_groundhog = [tuple(line.split()) for line in f]
+        print('  ----------------------------------------')
+        print('  Word: "Groundhog"')
+        print()
+        for i in scores_groundhog:
+            print(f"         {' '.join(map(str,i))} seconds")
 
-    try:
-        with open('highscores/raccoon.txt', 'x+') as f:
-            scores_raccoon = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Raccoon"')
-            print()
-            for i in scores_raccoon:
-                print(f"         {' '.join(map(str,i))} seconds")
-            print('  ----------------------------------------')
-    except FileExistsError:
-        with open('highscores/raccoon.txt') as f:
-            scores_raccoon = [tuple(line.split()) for line in f]
-            print('  ----------------------------------------')
-            print('  Word: "Raccoon"')
-            print()
-            for i in scores_raccoon:
-                print(f"       {' '.join(map(str,i))} seconds")
-            print('  ----------------------------------------')
+    with open('highscores/puffin.txt') as f:
+        scores_puffin = [tuple(line.split()) for line in f]
+        print('  ----------------------------------------')
+        print('  Word: "Puffin"')
+        print()
+        for i in scores_puffin:
+            print(f"         {' '.join(map(str,i))} seconds")
+
+    with open('highscores/raccoon.txt') as f:
+        scores_raccoon = [tuple(line.split()) for line in f]
+        print('  ----------------------------------------')
+        print('  Word: "Raccoon"')
+        print()
+        for i in scores_raccoon:
+            print(f"       {' '.join(map(str,i))} seconds")
+        print('  ----------------------------------------')
