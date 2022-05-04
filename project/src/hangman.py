@@ -11,11 +11,11 @@ def print_logo():
     It prints the logo.
     """
     print("""
-[]    []     []     []]    []   [][][][]   []]      [[]     []     []]   []
-[]    []    [][]    [][]   []  []      []  [][]    [][]    [][]    [][]  []
-[][][][]   []  []   [] []  []  []          [] []  [] []   []  []   [] [] []
-[]    []  [][][][]  []  [] []  []  []]][]  []  [][]  []  [][][][]  []  [][]
-[]    []  []    []  []    [[]   [][[[]]]   []   []   []  []    []  []   [[]
+  []    []     []     []]    []   [][][][]   []]      [[]     []     []]   []
+  []    []    [][]    [][]   []  []      []  [][]    [][]    [][]    [][]  []
+  [][][][]   []  []   [] []  []  []          [] []  [] []   []  []   [] [] []
+  []    []  [][][][]  []  [] []  []  []]][]  []  [][]  []  [][][][]  []  [][]
+  []    []  []    []  []    [[]   [][[[]]]   []   []   []  []    []  []   [[]
 \n""")
 
 # Function to count the time elapsed between start and end of the game
@@ -90,16 +90,16 @@ def player_guess(tries, word, secret_word, missed_characters, hidden_word):
     :return: The number of tries
     """
     while True:
-        guess = input('your guess: ')
+        guess = input('  your guess: ')
 
         if not guess.isalpha():
-            print(f'{guess} is not a letter')
+            print(f'  {guess} is not a letter')
 
         elif guess.lower() in missed_characters or guess in hidden_word:
-            print(f'{guess} has been used already')
+            print(f'  {guess} has been used already')
         
         elif len(guess) > 1 and len(guess) < len(word) or len(guess) > len(word):
-            print('Please guess with one letter or whole word')
+            print('  Please guess with one letter or whole word')
         
         elif guess.lower() == word:
 
@@ -131,20 +131,20 @@ def game_won(player_name, word, time_between):
     :param time_between: This is the time it took to user to guess the word
     """
     print()
-    print('You have won :)')
-    print(f'The word was: {word}')
-    print(f'Your time was: {int(time_between)} seconds')
+    print('  You have won :)')
+    print(f'  The word was: {word}')
+    print(f'  Your time was: {int(time_between)} seconds')
     print()
     save_score(word, player_name, time_between)
     while True:
-        play_again = input("Play again? 'y' for yes 'n' for no: ")
+        play_again = input("  Play again? 'y' for yes 'n' for no: ")
 
         if play_again.casefold() == 'y':
             restart_program()
         elif play_again.casefold() == 'n': 
             sys.exit()
         else:
-            print('Invalid input. Please try again')
+            print('  Invalid input. Please try again')
 
 # Function to tell user they have lost
 def game_lost(word, tries, max_tries, hidden_word_joined, missed_characters_joined):
@@ -162,44 +162,23 @@ def game_lost(word, tries, max_tries, hidden_word_joined, missed_characters_join
     """
     #Printing final state of gameboard for clarification
     clear()
-    print("""
-[]    []     []     []]    []   [][][][]   []]      [[]     []     []]   []
-[]    []    [][]    [][]   []  []      []  [][]    [][]    [][]    [][]  []
-[][][][]   []  []   [] []  []  []          [] []  [] []   []  []   [] [] []
-[]    []  [][][][]  []  [] []  []  []]][]  []  [][]  []  [][][][]  []  [][]
-[]    []  []    []  []    [[]   [][[[]]]   []   []   []  []    []  []   [[]
-
-            ___________
-            |         |
-            |         |
-            |         @
-            |        /|\\
-            |         |
-            |        / \\
-            |
-   _________|__________________
-  /         |                 /|
- /                           / |
-/___________________________/  /
-|                           | /
-|___________________________|/
-    """)
-    print(f'word: {hidden_word_joined}')
-    print(f'{max_tries - tries} attempts remaining')
-    print(f'misses: {missed_characters_joined}')
+    print(gameboard(6))
+    print(f'  word: {hidden_word_joined}')
+    print(f'  {max_tries - tries} attempts remaining')
+    print(f'  misses: {missed_characters_joined}')
     print()
-    print('You have lost :(')
-    print(f'The word was: {word}')
+    print('  You have lost :(')
+    print(f'  The word was: {word}')
     print()
     while True:
-        play_again = input("Play again? 'y' for yes 'n' for no: ")
+        play_again = input("  Play again? 'y' for yes 'n' for no: ")
 
         if play_again.casefold() == 'y':
             restart_program()
         elif play_again.casefold() == 'n':
             sys.exit()
         else:
-            print('Invalid input. Please try again \n')
+            print('  Invalid input. Please try again \n')
 
 # Function to ask user for username
 def username():
@@ -210,12 +189,12 @@ def username():
     """
     print_logo()
     while True:
-        player_name = input('Enter username (min 3, max 8 characters): ')
+        player_name = input('  Enter username (min 3, max 8 characters): ')
 
         if len(str(player_name)) <= 8 and len(str(player_name)) >= 3:
             break
         else:
-            print('Invalid name')
+            print('  Invalid name')
     return player_name
 
 # Function to choose random word to be guessed
@@ -236,20 +215,18 @@ def welcome_message():
     """
     clear()
     print_logo()
-    print('WELCOME TO HANGMAN!')
+    print('  WELCOME TO HANGMAN!')
 
 # Function to ask if user wants to play/quit/see highscores
 def play_quit_highscores():
     """
-    It asks the user if they want to play, quit or see highscores.
-    If they want to play, it breaks the loop and continues with the game.
-    If they want to quit, it quits the game.
-    If they want to see highscores, it shows the highscores.
-    If they enter an invalid input, it tells them that they entered an invalid input and asks them to try again.
+    It asks the user if they want to play, quit or see highscores. If they want to play, it breaks the
+    loop and continues to the next function. If they want to quit, it exits the program. If they want to
+    see highscores, it shows the highscores and returns to the main menu when user hits 'enter'.
     """
-    print('Do you want to play, quit or see highscores? \n')
+    print('  Do you want to play, quit or see highscores? \n')
     while True:
-        what_to_do = input("'p' to play, 'q' to quit and 'h' to see highscores: ")
+        what_to_do = input("  'p' to play, 'q' to quit and 'h' to see highscores: ")
         clear()
         if what_to_do.casefold() == 'p':
             break
@@ -257,9 +234,12 @@ def play_quit_highscores():
             sys.exit()
         elif what_to_do.casefold() == 'h':
             show_scores()
+            print()
+            input("  Press Enter to return...")
+            main()
         else:
             print_logo()
-            print('Invalid input. Please try again')
+            print('  Invalid input. Please try again')
 
 # Main game loop
 def main():
@@ -298,9 +278,9 @@ def main():
         hidden_word_joined = ' '.join(hidden_word)
         clear()
         print(gameboard(tries))
-        print(f'word: {hidden_word_joined}')
-        print(f'{max_tries - tries} attempts remaining')
-        print(f'misses: {missed_characters_joined}')
+        print(f'  word: {hidden_word_joined}')
+        print(f'  {max_tries - tries} attempts remaining')
+        print(f'  misses: {missed_characters_joined}')
         tries = player_guess(tries, word, secret_word, missed_characters, hidden_word)
         game_state = check_game_state(tries, secret_word)
         if game_state == 'neutral':

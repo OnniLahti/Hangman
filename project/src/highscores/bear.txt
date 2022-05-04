@@ -1,3 +1,2 @@
-konna, 0
-onni45, 0
-oksanen2, 5
+dska, 13
+mosda, 21
