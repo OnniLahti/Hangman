@@ -20,8 +20,10 @@ Download hangman.zip, extract everything in the same folder and run hangman.py
 
 # How to Run the App
 
+if you downloaded source files then:
+    Navigate into project folder in terminal/cmd and type the following:
 ```
-python3 src/hangman.py
+src % cd src && python3 hangman.py   
 ```
 
 # Screencast
