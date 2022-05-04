@@ -21,14 +21,14 @@ Download hangman.zip, extract everything in the same folder and run hangman.py
 # How to Run the App
 
 For windows only:
-        If you downloaded hangman.zip then extract the zip to for example desktop and run hangman.exe by double clicking the exe
-        or by navigating into project folder in terminal/cmd and typing the following:
+        If you downloaded hangman.zip then extract the zip to for example desktop and run hangman.exe by double clicking the exe \n
+        or by navigating into project folder in terminal/cmd and typing the following: \n
         ```
         cd src && python3 hangman.py   
         ```
         
 For windows or mac:
-        if you downloaded source files then navigate into project folder in terminal/cmd and type the following:
+        if you downloaded source files then navigate into project folder in terminal/cmd and type the following: \n
         ```
         cd src && python3 hangman.py   
         ```
