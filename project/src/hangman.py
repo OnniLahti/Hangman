@@ -73,15 +73,13 @@ def check_game_state(tries, secret_word):
 def player_guess(tries, word, secret_word, missed_characters, hidden_word):
     """
     The function takes in the number of tries, the word, the secret word, the missed characters, and the
-    hidden word.
-    It then asks the user to guess a letter or the whole word.
-    If the guess is not a letter, the guess is a letter that has already been
-    used or the guess is a word that is not the same length as the word
-    it tells the user to guess a letter or the whole word.
-    If the guess is the whole word, it replaces the secret word with underscores.
-    If the guess is a letter that is in the secret word
-    it replaces the secret word with underscores and replaces the hidden word with the letter.
-    If the guess is a letter that is not in the secret word, it adds the letter to the missed characters
+    hidden word. 
+    It then asks the user to guess a letter or the whole word. 
+    If the guess is invalid it asks again. 
+    If the guess is the whole word, it replaces the secret word with underscores. 
+    If the guess is a letter that is in the secret word, 
+    it replaces the secret word with underscores and replaces the hidden word with the letter. 
+    If the guess is a letter that is not in the secret word, it adds the letter to the missed characters 
     and adds one to the number of tries.
     
     :param tries: the number of tries the player has left
