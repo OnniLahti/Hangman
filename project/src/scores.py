@@ -1,5 +1,3 @@
-import os
-
 #Saves the users username and score to txt file and arranges the text file and deletes others than top 3
 def save_score(word, player_name, seconds):
     """
