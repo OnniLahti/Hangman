@@ -12,17 +12,31 @@ Onni Lahti
 
 # Tech/framework used
 
-Language used is Python, frameworks (to be added)
+Language used is mainly Python, no external modules used
 
 # Installation
 
-Download hangman.zip, extract everything in the same folder and run hangman.py
+Download hangman.zip and extract hangman folder to for example desktop <br />
+<br />
+Or <br />
+<br />
+Download source files to your computer and navigate into project folder
 
 # How to Run the App
 
-```
-python3 src/hangman.py
-```
+For windows only: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you downloaded hangman.zip then extract it to for example desktop and run the program by double clicking the hangman.exe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which is located in the extracted hangman folder <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or by navigating into hangman folder in cmd and typing the following: ```hangman.exe```
+<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you instead downloaded source files, extract the zip file to for example desktop and navigate into ```4A00EZ53../project/src``` in cmd <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and type the following: ```python3 hangman.py``` or ```python hangman.py``` depending on your python version
+<br />
+<br />
+<br />
+For mac: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download source files, extract the zip file to for example desktop and navigate into ```4A00EZ53../project/src``` in terminal <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and type the following: ```python3 hangman.py``` or ```python hangman.py``` depending on your python version
 
 # Screencast
 
