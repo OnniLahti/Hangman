@@ -42,4 +42,4 @@ For mac: <br />
 
 # Screencast
 
-[![Screencast](https://img.youtube.com/vi/2CTqg_e51BU/0.jpg)](https://www.youtube.com/watch?v=2CTqg_e51BU)
+[![Screencast](https://i.imgur.com/TKDLL65.png)](https://youtu.be/t53L_dc9Nw8)
