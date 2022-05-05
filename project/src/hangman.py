@@ -35,8 +35,11 @@ def restart_program():
     """
     It restarts the program by calling the python executable and passing it the current script's name
     """
-    python = sys.executable
-    os.execl(python, python, * sys.argv)
+    os.system("python hangman.py")
+    print()
+    print("  Restarting...")
+    time.sleep(1)
+    exit()
 
 # Function to clear the console after every turn to make it look cleaner
 def clear():
