@@ -12,7 +12,9 @@ Onni Lahti
 
 # Tech/framework used
 
-Language used is mainly Python, no external modules used
+Language used is mainly Python <br />
+Built-in modules used: random, os, sys, time <br />
+No external modules used
 
 # Installation
 
