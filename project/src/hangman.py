@@ -30,22 +30,37 @@ def time_calculator(start_time):
     time_between = end_time - start_time
     return time_between
 
-# Function to restart the program if user wants to play again
+# Function to exit program
+def exit_program():
+    """
+    This function prints the message 'Shutting down...', then waits for 0.5 seconds
+    before exiting the program.
+    """
+    print()
+    print('  Shutting down...')
+    time.sleep(0.5)
+    sys.exit()
+
+# Function to restart the program
 def restart_program():
     """
-    It restarts the program by calling the python executable and passing it the current script's name
+    It prints the text 'Restarting...', then waits for 0.5 seconds then restarts
+    the program and closes previous program.
     """
-    os.system("python hangman.py")
     print()
-    print("  Restarting...")
-    time.sleep(1)
-    exit()
+    print('  Restarting...')
+    time.sleep(0.5)
+    try:
+        os.system('python hangman.py')
+    except:
+        os.system('python3 hangman.py')
+    sys.exit()
 
 # Function to clear the console after every turn to make it look cleaner
 def clear():
     """
     If the operating system is Windows, clear the screen using the cls command, otherwise clear the
-    screen using the clear command
+    screen using the clear command.
     """
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -145,7 +160,7 @@ def game_won(player_name, word, time_between):
         if play_again.casefold() == 'y':
             restart_program()
         elif play_again.casefold() == 'n': 
-            sys.exit()
+            exit_program()
         else:
             print('  Invalid input. Please try again')
 
@@ -179,7 +194,7 @@ def game_lost(word, tries, max_tries, hidden_word_joined, missed_characters_join
         if play_again.casefold() == 'y':
             restart_program()
         elif play_again.casefold() == 'n':
-            sys.exit()
+            exit_program()
         else:
             print('  Invalid input. Please try again \n')
 
@@ -234,7 +249,7 @@ def play_quit_highscores():
         if what_to_do.casefold() == 'p':
             break
         elif what_to_do.casefold() == 'q':
-            sys.exit()
+            exit_program()
         elif what_to_do.casefold() == 'h':
             show_scores()
             print()
