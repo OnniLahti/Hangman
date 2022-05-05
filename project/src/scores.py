@@ -83,5 +83,5 @@ def show_scores():
         print('  Word: "Raccoon"')
         print()
         for i in scores_raccoon:
-            print(f"       {' '.join(map(str,i))} seconds")
+            print(f"         {' '.join(map(str,i))} seconds")
         print('  ----------------------------------------')
