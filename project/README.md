@@ -39,7 +39,3 @@ For windows only: <br />
 For mac: <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download source files, extract the zip file to for example desktop and navigate into ```4A00EZ53../project/src``` in terminal <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and type the following: ```python3 hangman.py``` or ```python hangman.py``` depending on your python version
-
-# Screencast
-
-[![Screencast](https://i.imgur.com/TKDLL65.png)](https://youtu.be/t53L_dc9Nw8)
