@@ -27,7 +27,8 @@ Download source files to your computer and navigate into project folder
 # How to Run the App
 
 For windows only: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you downloaded hangman.zip then extract it to for example desktop and run the program by double clicking the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hangman.exe which is located in the extracted hangman folder <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you downloaded hangman.zip then extract it to for example desktop and run the program by double clicking 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the hangman.exe which is located in the extracted hangman folder <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or by navigating into hangman folder in cmd and typing the following: ```hangman.exe```
 <br />
 <br />
