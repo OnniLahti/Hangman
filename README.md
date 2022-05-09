@@ -32,11 +32,13 @@ For windows only: <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or by navigating into hangman folder in cmd and typing the following: ```hangman.exe```
 <br />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you instead downloaded source files, extract the zip file to for example desktop and navigate into &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```4A00EZ53../project/src``` in cmd <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you instead downloaded source files, extract the zip file to for example desktop and 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;navigate into ```4A00EZ53../project/src``` in cmd <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and type the following: ```python3 hangman.py``` or ```python hangman.py``` depending on your python version
 <br />
 <br />
 <br />
 For mac: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download source files, extract the zip file to for example desktop and navigate into ```4A00EZ53../project/src``` in terminal <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download source files, extract the zip file to for example desktop and 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;navigate into ```4A00EZ53../project/src``` in terminal <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and type the following: ```python3 hangman.py``` or ```python hangman.py``` depending on your python version
