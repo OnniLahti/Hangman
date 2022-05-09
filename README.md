@@ -8,7 +8,7 @@ Onni Lahti
 
 # Screenshots
 
-![Alt text](https://i.imgur.com/UcJOj5r.png"Application screen.")
+![Screenshot of game](https://i.imgur.com/UcJOj5r.png "Application screen.")
 
 # Tech/framework used
 
